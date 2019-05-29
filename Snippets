@@ -1,0 +1,17 @@
+Difference between == and ===
+  == - compares only value
+  === - compares both value and type
+  
+Ex Snippet 1 : 
+var x ='xyz';
+var y = new String('xyz');
+console.log(x==y); // true 
+console.log(x===y); // false
+ 
+Ex Snippet 1 :  
+var y = new String('xyz');
+var z = new String('xyz');
+console.log(y==z); // false
+console.log(y===z); // false
+
+So, it's false when we compare objects
