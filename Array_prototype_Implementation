@@ -1,0 +1,48 @@
+Array Reference Methods
+  1. Filter Implementation
+        Array.prototype.mfilter =  function (fun) {
+            var filtered = []; 
+            for(let i = 0; i < this.length; i++) {
+              if (fun(this[i], i, this)) filtered.push(this[i]);
+            }
+          return filtered;
+        };
+        
+        Array.prototype.myFilter = function(callback, context) {
+              arr = [];
+              for (var i = 0; i < this.length; i++) {
+                  if (callback.call(context, this[i], i, this))
+                      arr.push(this[i]);
+              }
+              return arr;
+          };
+        
+    2. Map Implementation
+        Array.prototype.ownMap = function(callback) {
+            let mappedArr = [];
+            for(let i=0; i < this.length; i++) {
+              mappedArr.push(callback(this[i], i, this))
+            }
+            return mappedArr;
+          }
+          
+     3.Reduce Implementation
+       Array.prototype.myReduce = function(callback, initialVal) {
+       var accumulator = (initialVal === undefined) ? undefined : initialVal;
+       for (var i = 0; i < this.length; i++) {
+            if (accumulator !== undefined)
+                accumulator = callback.call(undefined, accumulator, this[i], i, this);
+            else
+                accumulator = this[i];
+              }
+              return accumulator;
+          }
+          
+     4.forEACH Implementation
+      Array.prototype.myEach = function(callback) {
+          for (var i = 0; i < this.length; i++)
+              callback(this[i], i, this);
+            };
+            
+            
+        
